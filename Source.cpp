@@ -118,7 +118,7 @@ int main() {
 	printf("\nKehen: %.9f\nError: %.9f\n", count(arg, 1.0f, next_elm_exp, 3), count(arg, 1.0f, next_elm_exp, 3) - expf(arg));
 
 	if ((arg > 0) && (arg < 2)) {
-		printf("\nln(x) for x in (0; 1)==========================\n");
+		printf("\nln(x) for x in (0; 2)==========================\n");
 		printf("Math.h: %.9f\n", logf(arg));
 		printf("\nStraight: %.9f\nError: %.9f\n", count(arg - 1, arg - 1, next_elm_ln, 1), count(arg - 1, arg - 1, next_elm_ln, 1) - logf(arg));
 		printf("\nBackwards: %.9f\nError: %.9f\n", count(arg - 1, arg - 1, next_elm_ln, 2), count(arg - 1, arg - 1, next_elm_ln, 2) - logf(arg));
