@@ -2,9 +2,9 @@
 #include <stdlib.h>
 #include <math.h>
 
-const int MAX_ELEMENTS = 20;
+const int MAX_ELEMENTS = 12;
 
-// элемент
+// ГЅГ«ГҐГ¬ГҐГ­ГІ
 struct Element {
 	float curr;
 	float arg;
@@ -17,7 +17,7 @@ void fast2sum(float a, float b, float* res, float* err) {
 	*err = a - (*res - b);
 }
 
-// функции след элементов
+// ГґГіГ­ГЄГ¶ГЁГЁ Г±Г«ГҐГ¤ ГЅГ«ГҐГ¬ГҐГ­ГІГ®Гў
 void next_elm_sin(Element* elm) {
 	//printf("%f\n", elm->curr);
 	elm->num++;
@@ -41,14 +41,14 @@ void next_elm_ln_any(Element* elm) {
 	elm->curr = elm->curr * ( (elm->arg * elm->arg) * (2.0f * elm->num - 1.0f) / (2.0f * elm->num + 1.0f));
 }
 
-//считалка ( 1 - прямой | 2 - обратный | 3 - Кэхэнчик )
+//Г±Г·ГЁГІГ Г«ГЄГ  ( 1 - ГЇГ°ГїГ¬Г®Г© | 2 - Г®ГЎГ°Г ГІГ­Г»Г© | 3 - ГЉГЅГµГЅГ­Г·ГЁГЄ )
 float count(float x, float curr_first, void (*formula)(Element* elm) , int mode) {
 	float elements[MAX_ELEMENTS];
 	Element elm = { curr_first, x, 0 };
 
 	//printf("start count");
 	
-	//забиваем массив элементами ряда
+	//Г§Г ГЎГЁГўГ ГҐГ¬ Г¬Г Г±Г±ГЁГў ГЅГ«ГҐГ¬ГҐГ­ГІГ Г¬ГЁ Г°ГїГ¤Г 
 	int k = 0;
 	while (k < MAX_ELEMENTS) {
 		elements[k] = elm.curr;
@@ -58,7 +58,7 @@ float count(float x, float curr_first, void (*formula)(Element* elm) , int mode)
 
 	//printf("massive ready");
 
-	//собсна считалка
+	//Г±Г®ГЎГ±Г­Г  Г±Г·ГЁГІГ Г«ГЄГ 
 	float res_sum = 0.0f;
 	float keh_err = 0.0f;
 
@@ -93,7 +93,7 @@ float count(float x, float curr_first, void (*formula)(Element* elm) , int mode)
 	return res_sum;
 }
 
-//ну и вывод
+//Г­Гі ГЁ ГўГ»ГўГ®Г¤
 int main() {
 	float arg;
 	printf("Text down x:\n");
