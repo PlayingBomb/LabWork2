@@ -41,7 +41,7 @@ void next_elm_ln(Element* elm) {
 }
 void next_elm_ln_any(Element* elm) {
 	elm->num++;
-	elm->curr = elm->curr * ( (elm->arg * elm->arg) * (2.0f * elm->num +1.0f) / (2.0f * elm->num + 3.0f));
+	elm->curr = elm->curr * ( (elm->arg * elm->arg) * (2.0f * elm->num - 1.0f) / (2.0f * elm->num + 1.0f));
 }
 
 //считалка ( 1 - прямой | 2 - обратный | 3 - Кэхэнчик )
