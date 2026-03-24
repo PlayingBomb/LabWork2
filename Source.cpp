@@ -17,9 +17,6 @@ void fast2sum(float a, float b, float* res, float* err) {
 	*err = a - (*res - b);
 }
 
-// указатель на функцию сделанный типом
-//typedef void (*next_elm)(Element* elm);
-
 // функции след элементов
 void next_elm_sin(Element* elm) {
 	//printf("%f\n", elm->curr);
