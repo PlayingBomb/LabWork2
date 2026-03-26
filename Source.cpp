@@ -93,21 +93,27 @@ float count(float x, float curr_first, void (*formula)(Element* elm) , int mode)
 
 //ну и вывод
 int main() {
-	float arg;
+	float arg,s_c_arg,my_pi;
 	printf("Text down x:\n");
 	scanf_s("%f", &arg);
 
+	my_pi = acos(-1.0);
+
+	s_c_arg = arg;
+	while (s_c_arg >= 2 * my_pi)
+		s_c_arg -= 2 * my_pi;
+
 	printf("\nsin(x)===============================\n");
-	printf("Math.h: %.9f\n", sinf(arg));
-	printf("\nStraight: %.9f\nError: %.9f\n", count(arg, arg, next_elm_sin, 1), count(arg, arg, next_elm_sin, 1) - sinf(arg));
-	printf("\nBackwards: %.9f\nError: %.9f\n", count(arg, arg, next_elm_sin, 2), count(arg, arg, next_elm_sin, 2) - sinf(arg));
-	printf("\nKehen: %.9f\nError: %.9f\n", count(arg, arg, next_elm_sin, 3), count(arg, arg, next_elm_sin, 3) - sinf(arg));
+	printf("Math.h: %.9f\n", sinf(s_c_arg));
+	printf("\nStraight: %.9f\nError: %.9f\n", count(s_c_arg, s_c_arg, next_elm_sin, 1), count(s_c_arg, s_c_arg, next_elm_sin, 1) - sinf(s_c_arg));
+	printf("\nBackwards: %.9f\nError: %.9f\n", count(s_c_arg, s_c_arg, next_elm_sin, 2), count(s_c_arg, s_c_arg, next_elm_sin, 2) - sinf(s_c_arg));
+	printf("\nKehen: %.9f\nError: %.9f\n", count(s_c_arg, s_c_arg, next_elm_sin, 3), count(s_c_arg, s_c_arg, next_elm_sin, 3) - sinf(s_c_arg));
 
 	printf("\ncos(x)===============================\n");
-	printf("Math.h: %.9f\n", cosf(arg));
-	printf("\nStraight: %.9f\nError: %.9f\n", count(arg, 1.0f, next_elm_cos, 1), count(arg, 1.0f, next_elm_cos, 1) - cosf(arg));
-	printf("\nBackwards: %.9f\nError: %.9f\n", count(arg, 1.0f, next_elm_cos, 2), count(arg, 1.0f, next_elm_cos, 2) - cosf(arg));
-	printf("\nKehen: %.9f\nError: %.9f\n", count(arg, 1.0f, next_elm_cos, 3), count(arg, 1.0f, next_elm_cos, 3) - cosf(arg));
+	printf("Math.h: %.9f\n", cosf(s_c_arg));
+	printf("\nStraight: %.9f\nError: %.9f\n", count(s_c_arg, 1.0f, next_elm_cos, 1), count(s_c_arg, 1.0f, next_elm_cos, 1) - cosf(s_c_arg));
+	printf("\nBackwards: %.9f\nError: %.9f\n", count(s_c_arg, 1.0f, next_elm_cos, 2), count(s_c_arg, 1.0f, next_elm_cos, 2) - cosf(s_c_arg));
+	printf("\nKehen: %.9f\nError: %.9f\n", count(s_c_arg, 1.0f, next_elm_cos, 3), count(s_c_arg, 1.0f, next_elm_cos, 3) - cosf(s_c_arg));
 
 	printf("\nexp(x)===============================\n");
 	printf("Math.h: %.9f\n", expf(arg));
